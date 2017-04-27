@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% set active_page = "register" %}
+
+{% block main %}
+  <div class="login-form center-block">
+    <h2>Register</h2><br>
+    {% include 'flash_messages.html' %}
+    <form action="{{ url_for('register') }}" method="post" enctype="multipart/form-data">
+      <div class="row">
+        <div class="form-group col-md-4 col-xl-4">
+          {{ form.csrf_token }}
+          <div class="form-group">
+            {{ form.firstname.label }}
+            {{ form.firstname(class='form-control', placeholder="First Name") }}
+          </div>
+          <div class="form-group">
+            {{ form.lastname.label }}
+            {{ form.lastname(class='form-control', placeholder="Last Name") }}
+          </div>
+          <div class="form-group">
+            {{ form.email.label }}
+            {{ form.email(class='form-control', placeholder="Email Address") }}
+          </div>
+          <div class="form-group">
+            {{ form.gender.label }}
+            {{ form.gender(class='form-control', placeholder="Male or Female?") }}
+          </div>
+          <div class="form-group">
+            {{ form.age.label }}
+            {{ form.age(class='form-control', placeholder="Enter your age", maxlength=3) }}
+          </div>
+          <div class="form-group">
+            {{ form.password.label }}
+            {{ form.password(class='form-control', placeholder="Enter your password") }}
+          </div>
+          <div class="form-group">
+            {{ form.passwordConfirm.label }}
+            {{ form.passwordConfirm(class='form-control', placeholder="Enter password again") }}
+          </div>
+          <button type="submit" name="submit" class="btn btn-primary btn-block">Create account</button>
+        </div>
+        <div class="col-md-8 col-xl-8"></div>
+      </div>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,3 @@
+\#!/usr/bin/env bash
+python flaskmigrate.py db migrate
+python flaskmigrate.py db upgrade
